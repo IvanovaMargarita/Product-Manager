@@ -7,6 +7,17 @@ import DeleteButton from './DeleteButton'
 const ProductList = (props) => {
     const [productList,setProductList]=useState([]) //refactored
 
+    useEffect(()=>{
+        axios.get("http://localhost:8000/api/products")
+        .then((res)=>{
+        console.log(res.data);
+            setProductList(res.data);
+	})
+        .catch((err)=>{
+            console.log(err);
+        })
+    }, [])
+
     const deleteProduct=(productId)=>{
         axios.delete("http://localhost:8000/api/products/" + productId)
             .then(res=>{
@@ -22,7 +33,7 @@ const ProductList = (props) => {
   return (
     <div>
         <h3>All Products:</h3>
-        {console.log("product", productList )}
+        {/* {console.log("product", productList )} */}
         {
             productList.map((item,index)=>{
                 return (

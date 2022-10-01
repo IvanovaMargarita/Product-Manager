@@ -2,7 +2,7 @@ import React,{useEffect, useState} from 'react'
 import axios from 'axios'
 import DeleteButton from './DeleteButton'
 import ProductForm from './ProductForm'
-import { useNavigate} from 'react'
+import { useNavigate} from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 
 const UpdatedProduct = (props) => {
@@ -56,7 +56,6 @@ const UpdatedProduct = (props) => {
                     name='description' value={description}
                     onChange={(e)=>{setDescription(e.target.value)}}/>
                     <input type="submit"/> 
-                    <button>Submit</button>
 
             </form> 
         </div>
